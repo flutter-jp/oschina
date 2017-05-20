@@ -8,14 +8,25 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
-    var todoItems:[(String, NSDate)] = []
-    
+class TableViewController: UITableViewController,TodoContentCellProtocol {
+    var todolists:[TodoList] = []
+    var completedFlag = false
     var todoRepository = TodoRepository()
+    
+    func updateTodoState(cell: TodoContentCellTableViewCell, completed: Bool){
+        // 接口中的cell参数，主要就是为了得到cell的indexPath值，这样才能找到其对应的Todo
+        let indexPath = self.tableView.indexPath(for: cell)!
+        let todo = self.todolists[indexPath.section].todos?[indexPath.row]
+        todo?.complete = self.completedFlag
+        
+        // 打印状态看Todo模型是否得到更新
+        print("completed state of todo \(todo!.content) is \(todo?.complete)")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        todoItems = self.todoRepository.findAllItems()
+        todolists = self.todoRepository.findAllItems()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -31,19 +42,32 @@ class TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return self.todolists.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.todoItems.count
+        return self.todolists[section].todos!.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TodoContentCellTableViewCell
-        let item = self.todoItems[indexPath.row]
-        cell.item.text = item.0
+        let todo : Todo = (self.todolists[indexPath.section].todos?[indexPath.row])!
+        
+        if todo.complete != nil {
+            completedFlag = todo.complete!
+        }
+        
+        cell.item.text = todo.content
+        cell.completedFlag.isSelected = completedFlag
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "MM-dd"
+        let doText = dateFormater.string(from: todo.dueDate as! Date)
+        cell.dueDate.text = doText
+        
+        // 设置cell的代理
+        cell.delege = self
         return cell
     }
  

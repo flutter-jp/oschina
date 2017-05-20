@@ -25,8 +25,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FX-SQ-uR7">
-                                            <rect key="frame" x="42" y="10" width="333" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FX-SQ-uR7">
+                                            <rect key="frame" x="42" y="10" width="213" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -43,6 +43,12 @@
                                                 <action selector="flipTodo:" destination="agK-gO-AEu" eventType="touchUpInside" id="IAz-t0-c6T"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xah-iG-7AA">
+                                            <rect key="frame" x="325" y="11" width="35" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3FX-SQ-uR7" firstAttribute="leading" secondItem="AbW-L8-zcK" secondAttribute="trailing" constant="2" id="laS-5a-8Il"/>
@@ -50,13 +56,16 @@
                                 </tableViewCellContentView>
                                 <constraints>
                                     <constraint firstItem="AbW-L8-zcK" firstAttribute="leading" secondItem="agK-gO-AEu" secondAttribute="leading" id="Gym-M5-1R1"/>
-                                    <constraint firstAttribute="trailing" secondItem="3FX-SQ-uR7" secondAttribute="trailing" id="JmD-wx-mhN"/>
+                                    <constraint firstAttribute="trailing" secondItem="3FX-SQ-uR7" secondAttribute="trailing" constant="120" id="JmD-wx-mhN"/>
+                                    <constraint firstItem="Xah-iG-7AA" firstAttribute="top" secondItem="agK-gO-AEu" secondAttribute="top" constant="11" id="WSJ-AF-BhK"/>
+                                    <constraint firstItem="Xah-iG-7AA" firstAttribute="leading" secondItem="agK-gO-AEu" secondAttribute="leading" constant="325" id="ZBo-4c-YId"/>
                                     <constraint firstItem="AbW-L8-zcK" firstAttribute="top" secondItem="agK-gO-AEu" secondAttribute="top" id="Zjx-Da-ywz"/>
                                     <constraint firstAttribute="bottom" secondItem="3FX-SQ-uR7" secondAttribute="bottom" constant="13.5" id="Zu6-Wt-opZ"/>
                                     <constraint firstAttribute="bottom" secondItem="AbW-L8-zcK" secondAttribute="bottom" constant="4" id="oNg-yU-leD"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="completedFlag" destination="AbW-L8-zcK" id="3Gz-en-3ww"/>
+                                    <outlet property="dueDate" destination="Xah-iG-7AA" id="glz-GB-m6o"/>
                                     <outlet property="item" destination="3FX-SQ-uR7" id="ks6-JT-6vO"/>
                                 </connections>
                             </tableViewCell>
