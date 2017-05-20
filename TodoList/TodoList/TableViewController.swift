@@ -9,10 +9,13 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    var todoItems = ["吃饭", "睡觉", "抢银行"]
+    var todoItems:[(String, NSDate)] = []
+    
+    var todoRepository = TodoRepository()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        todoItems = self.todoRepository.findAllItems()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,7 +42,8 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TodoContentCellTableViewCell
-        cell.item.text = self.todoItems[indexPath.row]
+        let item = self.todoItems[indexPath.row]
+        cell.item.text = item.0
         return cell
     }
  
