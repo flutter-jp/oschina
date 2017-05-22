@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 class UserTableViewController: UITableViewController {
 
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userStatus: UILabel!
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var money: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,17 +31,6 @@ class UserTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

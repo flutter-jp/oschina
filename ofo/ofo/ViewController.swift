@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,14 @@ class ViewController: UIViewController {
         self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ofoLogo"))
         // 回退按钮的设置(从webview退回到上一个视图)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        if let revalVC = revealViewController() {
+            revalVC.rearViewRevealWidth = 280
+            self.navigationItem.leftBarButtonItem?.target = revalVC
+            self.navigationItem.leftBarButtonItem?.action = #selector(SWRevealViewController.revealToggle(_:))
+            view.addGestureRecognizer(revalVC.panGestureRecognizer())
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
