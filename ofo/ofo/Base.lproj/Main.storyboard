@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ofo小黄车-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ofo" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,13 +21,49 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EaR-Fl-6PO">
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EaR-Fl-6PO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="8Lo-i5-A9b"/>
+                            <constraint firstItem="EaR-Fl-6PO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ChI-pB-K5m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EaR-Fl-6PO" secondAttribute="trailing" id="W8q-Uc-gEl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EaR-Fl-6PO" secondAttribute="bottom" id="bhj-bz-U33"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ofo小黄车" id="W2F-Bc-eV7"/>
+                    <navigationItem key="navigationItem" id="W2F-Bc-eV7">
+                        <barButtonItem key="leftBarButtonItem" id="v1H-fd-OXX"/>
+                        <barButtonItem key="rightBarButtonItem" id="j6I-7a-5XL">
+                            <connections>
+                                <segue destination="vnZ-3o-n3k" kind="show" id="E5j-Ia-dmZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
+            <point key="canvasLocation" x="815" y="124"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="bmW-9i-bOH">
+            <objects>
+                <viewController id="vnZ-3o-n3k" customClass="WebViewController" customModule="ofo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="136-Jo-bSc"/>
+                        <viewControllerLayoutGuide type="bottom" id="cLX-Wl-rSj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5m6-Dz-jBE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BXU-mo-1s0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zkC-h5-Q7W">

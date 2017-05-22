@@ -12,7 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // 左边的 barItem 样式 withRenderingMode设置为alwaysOriginal表示使用图片的本来颜色
+        self.navigationItem.leftBarButtonItem?.image = #imageLiteral(resourceName: "leftTopImage").withRenderingMode(.alwaysOriginal)
+        // 右边的 barItem 样式 withRenderingMode设置为alwaysOriginal表示使用图片的本来颜色
+        self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "rightTopImage").withRenderingMode(.alwaysOriginal)
+        // 中间的ofo Logo
+        self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "ofoLogo"))
+        // 回退按钮的设置(从webview退回到上一个视图)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     override func didReceiveMemoryWarning() {
