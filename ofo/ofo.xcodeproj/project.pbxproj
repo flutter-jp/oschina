@@ -14,6 +14,7 @@
 		CD5ECFF01ED289FF00C2B1FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD5ECFEF1ED289FF00C2B1FD /* Assets.xcassets */; };
 		CD5ECFFD1ED2B33700C2B1FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5ECFFC1ED2B33700C2B1FD /* MapKit.framework */; };
 		CD5ECFFF1ED2B46500C2B1FD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5ECFFE1ED2B46500C2B1FD /* WebViewController.swift */; };
+		CD5ED0011ED2BEEB00C2B1FD /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5ED0001ED2BEEB00C2B1FD /* UserTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		CD5ECFF41ED289FF00C2B1FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD5ECFFC1ED2B33700C2B1FD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CD5ECFFE1ED2B46500C2B1FD /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		CD5ED0001ED2BEEB00C2B1FD /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		CFF8B59628025E090B1DD79B /* Pods_ofo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ofo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				CD5ECFEF1ED289FF00C2B1FD /* Assets.xcassets */,
 				CD5ECFF41ED289FF00C2B1FD /* Info.plist */,
 				CD5ECFFE1ED2B46500C2B1FD /* WebViewController.swift */,
+				CD5ED0001ED2BEEB00C2B1FD /* UserTableViewController.swift */,
 			);
 			path = ofo;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			files = (
 				CD5ECFEB1ED289FF00C2B1FD /* ViewController.swift in Sources */,
 				CD5ECFFF1ED2B46500C2B1FD /* WebViewController.swift in Sources */,
+				CD5ED0011ED2BEEB00C2B1FD /* UserTableViewController.swift in Sources */,
 				CD5ECFE91ED289FF00C2B1FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
