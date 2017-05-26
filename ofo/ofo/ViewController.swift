@@ -9,8 +9,9 @@
 import UIKit
 import SWRevealViewController
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController , MAMapViewDelegate{
+    @IBOutlet weak var oView: UIView!
+    var mapView: MAMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // 左边的 barItem 样式 withRenderingMode设置为alwaysOriginal表示使用图片的本来颜色
@@ -28,6 +29,14 @@ class ViewController: UIViewController {
             self.navigationItem.leftBarButtonItem?.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(revalVC.panGestureRecognizer())
         }
+        // 创建高德地图并添加到视图中
+        mapView = MAMapView(frame: self.view.bounds)
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
+        self.view.addSubview(mapView)
+        // 把view放到地图的上层
+        self.view.bringSubview(toFront: oView)
         
     }
 

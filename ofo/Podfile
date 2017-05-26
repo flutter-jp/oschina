@@ -9,5 +9,9 @@ target 'ofo' do
  pod 'Alamofire', '~> 4.4'
  pod 'SwiftyJSON'
  pod 'SnapKit', '~> 3.2.0'
+ pod 'AMap3DMap'
+ pod 'AMapSearch'
+ pod 'AMapLocation'
+ pod 'AMapNavi'
  pod 'SWRevealViewController'
 end
