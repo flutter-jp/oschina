@@ -22,14 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EaR-Fl-6PO">
-                                <rect key="frame" x="20" y="64" width="374" height="672"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EaR-Fl-6PO">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </mapView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I8l-pj-FQT">
-                                <rect key="frame" x="20" y="588" width="46" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sv-B9-YOS">
                                 <rect key="frame" x="20" y="568" width="374" height="168"/>
                                 <subviews>
@@ -83,7 +78,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9jP-nq-nCy" secondAttribute="trailing" constant="27" id="4Pj-h8-VhK"/>
                                     <constraint firstAttribute="bottom" secondItem="9jP-nq-nCy" secondAttribute="bottom" constant="34" id="P7d-gY-iIW"/>
@@ -96,8 +91,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="EaR-Fl-6PO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0kD-Zb-7QL"/>
+                            <constraint firstItem="EaR-Fl-6PO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="32" id="2X5-af-Oqe"/>
+                            <constraint firstItem="EaR-Fl-6PO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5Ed-Ii-weR"/>
                             <constraint firstItem="6sv-B9-YOS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Afp-cm-Hd5"/>
                             <constraint firstItem="6sv-B9-YOS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="284" id="fbJ-Ch-MID"/>
+                            <constraint firstItem="EaR-Fl-6PO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fyG-2V-p33"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="W2F-Bc-eV7">
