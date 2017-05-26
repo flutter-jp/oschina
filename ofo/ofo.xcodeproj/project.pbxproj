@@ -15,6 +15,7 @@
 		CD5ECFFD1ED2B33700C2B1FD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5ECFFC1ED2B33700C2B1FD /* MapKit.framework */; };
 		CD5ECFFF1ED2B46500C2B1FD /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5ECFFE1ED2B46500C2B1FD /* WebViewController.swift */; };
 		CD5ED0011ED2BEEB00C2B1FD /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5ED0001ED2BEEB00C2B1FD /* UserTableViewController.swift */; };
+		CD5ED0081ED2D20300C2B1FD /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5ED0071ED2D20300C2B1FD /* AboutUsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CD5ECFFE1ED2B46500C2B1FD /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		CD5ED0001ED2BEEB00C2B1FD /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		CD5ED0031ED2CBB900C2B1FD /* ofo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ofo-Bridging-Header.h"; sourceTree = "<group>"; };
+		CD5ED0071ED2D20300C2B1FD /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		CFF8B59628025E090B1DD79B /* Pods_ofo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ofo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				CD5ECFE81ED289FF00C2B1FD /* AppDelegate.swift */,
 				CD5ECFEA1ED289FF00C2B1FD /* ViewController.swift */,
 				CD5ECFEC1ED289FF00C2B1FD /* Main.storyboard */,
+				CD5ED0071ED2D20300C2B1FD /* AboutUsViewController.swift */,
 				CD5ECFEF1ED289FF00C2B1FD /* Assets.xcassets */,
 				CD5ECFF41ED289FF00C2B1FD /* Info.plist */,
 				CD5ECFFE1ED2B46500C2B1FD /* WebViewController.swift */,
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD5ED0081ED2D20300C2B1FD /* AboutUsViewController.swift in Sources */,
 				CD5ECFEB1ED289FF00C2B1FD /* ViewController.swift in Sources */,
 				CD5ECFFF1ED2B46500C2B1FD /* WebViewController.swift in Sources */,
 				CD5ED0011ED2BEEB00C2B1FD /* UserTableViewController.swift in Sources */,
