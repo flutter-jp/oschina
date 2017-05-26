@@ -9,11 +9,39 @@
 import UIKit
 import SWRevealViewController
 
-class ViewController: UIViewController , MAMapViewDelegate{
+class ViewController: UIViewController , MAMapViewDelegate , AMapSearchDelegate{
+
     @IBOutlet weak var oView: UIView!
     var mapView: MAMapView!
+    var search : AMapSearchAPI!
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initEffect()
+        // 创建高德地图并添加到视图中
+        self.createMap()
+        
+    }
+    
+    /// 创建地图
+    func createMap(){
+        mapView = MAMapView(frame: self.view.bounds)
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
+        self.view.addSubview(mapView)
+        // 把view放到地图的上层
+        self.view.bringSubview(toFront: oView)
+        // 初始化搜索
+        search = AMapSearchAPI();
+        search.delegate = self
+    }
+    
+    
+    /// 初始化样式效果
+    func initEffect(){
         // 左边的 barItem 样式 withRenderingMode设置为alwaysOriginal表示使用图片的本来颜色
         self.navigationItem.leftBarButtonItem?.image = #imageLiteral(resourceName: "leftTopImage").withRenderingMode(.alwaysOriginal)
         // 右边的 barItem 样式 withRenderingMode设置为alwaysOriginal表示使用图片的本来颜色
@@ -29,16 +57,97 @@ class ViewController: UIViewController , MAMapViewDelegate{
             self.navigationItem.leftBarButtonItem?.action = #selector(SWRevealViewController.revealToggle(_:))
             view.addGestureRecognizer(revalVC.panGestureRecognizer())
         }
-        // 创建高德地图并添加到视图中
-        mapView = MAMapView(frame: self.view.bounds)
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .follow
-        self.view.addSubview(mapView)
-        // 把view放到地图的上层
-        self.view.bringSubview(toFront: oView)
-        
     }
+    
+    
+    
+    /// 搜索附近的小黄车
+    ///
+    /// - Parameter sender: 定位按钮
+    @IBAction func searchBike(_ sender: UIButton) {
+        searchBicycleNearBy()
+    }
+    
+    
+    
+    /// 把默认的大头钉替换成自定义的图片
+    ///
+    /// - Parameters:
+    ///   - mapView: 地图
+    ///   - annotation: 搜索结果
+    /// - Returns: 返回
+    func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
+        if annotation is MAUserLocation {
+            return nil
+        }
+        
+            let pointReuseIndetifier = "myId"
+            var annotationView: MAPinAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndetifier) as! MAPinAnnotationView?
+            
+            if annotationView == nil {
+                annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndetifier)
+            }
+
+        
+        if annotation.title == "正常可用" {
+            annotationView?.image = #imageLiteral(resourceName: "HomePage_nearbyBike")
+        } else {
+            annotationView?.image = #imageLiteral(resourceName: "HomePage_nearbyBikeRedPacket")
+        }
+        annotationView!.canShowCallout = true
+        annotationView!.animatesDrop = true
+        return annotationView!
+    }
+    
+    
+    /// 搜索完小黄车之后标注到地图上
+    ///
+    /// - Parameters:
+    ///   - request: 请求
+    ///   - response: 返回
+    func onPOISearchDone(_ request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
+        guard response.count > 0 else {
+            print("周边没有小黄车")
+            return
+        }
+        
+        
+        var annotations : [MAPointAnnotation] = []
+        annotations = response.pois.map{
+            let annotation = MAPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees($0.location.latitude),
+                                                               longitude: CLLocationDegrees($0.location.longitude))
+            if($0.distance < 300){
+                annotation.title = "红包区域内开锁任意小黄车"
+                annotation.subtitle = "骑行10分钟可得现金红包"
+            } else {
+                annotation.title = "正常可用"
+            }
+                
+            return annotation
+        }
+            
+        mapView.addAnnotations(annotations)
+        mapView.showAnnotations(annotations, animated: true)
+    }
+
+    
+    /// 搜索附近的小黄车
+    func searchBicycleNearBy(){
+        serachCustomLocation(mapView.userLocation.coordinate)
+    }
+    
+    
+    func serachCustomLocation(_ center : CLLocationCoordinate2D) {
+        // 搜索
+        let request = AMapPOIAroundSearchRequest()
+        request.location = AMapGeoPoint.location(withLatitude: CGFloat(center.latitude), longitude: CGFloat(center.longitude))
+        request.keywords = "餐馆"
+        request.radius = 500
+        request.requireExtension = true
+        search.aMapPOIAroundSearch(request)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

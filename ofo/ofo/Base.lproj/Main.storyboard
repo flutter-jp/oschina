@@ -37,6 +37,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0y-3q-giu">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                         <state key="normal" backgroundImage="leftBottomImage"/>
+                                                        <connections>
+                                                            <action selector="searchBike:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KT6-Gl-mfQ"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定位" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8M0-Fs-dnV">
                                                         <rect key="frame" x="12.666666666666664" y="60" width="34.666666666666664" height="20.333333333333371"/>
