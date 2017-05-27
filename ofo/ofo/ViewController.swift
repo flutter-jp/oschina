@@ -12,9 +12,10 @@ import SWRevealViewController
 class ViewController: UIViewController , MAMapViewDelegate , AMapSearchDelegate{
 
     @IBOutlet weak var oView: UIView!
-    var mapView: MAMapView!
+    var mapView : MAMapView!
     var search : AMapSearchAPI!
     var pin : MyPingPointAnnotation!
+    var pinView : MAPinAnnotationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +96,7 @@ class ViewController: UIViewController , MAMapViewDelegate , AMapSearchDelegate{
             }
             av?.image = #imageLiteral(resourceName: "homePage_wholeAnchor")
             av?.canShowCallout = false
+            self.pinView = av as! MAPinAnnotationView!
             return av
         }
 
@@ -107,6 +109,31 @@ class ViewController: UIViewController , MAMapViewDelegate , AMapSearchDelegate{
         annotationView!.canShowCallout = true
         annotationView!.animatesDrop = true
         return annotationView!
+    }
+    
+    
+    
+    /// 移动地图
+    ///
+    /// - Parameters:
+    ///   - mapView: 地图
+    ///   - wasUserAction: 用户操作
+    func mapView(_ mapView: MAMapView!, mapDidMoveByUser wasUserAction: Bool) {
+        if wasUserAction {
+            pin.isLockedToScreen = true
+            serachCustomLocation(mapView.centerCoordinate)
+            pinAnimate()
+        }
+    }
+    
+    // MARK: - 大头针动画 坠落动画
+    func pinAnimate() {
+        // 修改Y坐标
+        let endFrame = pinView.frame
+        pinView.frame = endFrame.offsetBy(dx: 0, dy: -15)
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: [], animations: {
+            self.pinView.frame = endFrame
+        }, completion: nil)
     }
     
     
