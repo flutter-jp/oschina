@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B24F90175A897AD8B6B758C1 /* Pods_ofo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF8B59628025E090B1DD79B /* Pods_ofo.framework */; };
+		CD02B3761ED9477400FE5C95 /* MyPingPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02B3751ED9477400FE5C95 /* MyPingPointAnnotation.swift */; };
 		CD5ECFE91ED289FF00C2B1FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5ECFE81ED289FF00C2B1FD /* AppDelegate.swift */; };
 		CD5ECFEB1ED289FF00C2B1FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5ECFEA1ED289FF00C2B1FD /* ViewController.swift */; };
 		CD5ECFEE1ED289FF00C2B1FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD5ECFEC1ED289FF00C2B1FD /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		0C761ED932E8871531582F52 /* Pods-ofo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ofo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ofo/Pods-ofo.debug.xcconfig"; sourceTree = "<group>"; };
 		C9F36C13CA6939EDF48CEF01 /* Pods-ofo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ofo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ofo/Pods-ofo.release.xcconfig"; sourceTree = "<group>"; };
+		CD02B3751ED9477400FE5C95 /* MyPingPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPingPointAnnotation.swift; sourceTree = "<group>"; };
 		CD5ECFE51ED289FF00C2B1FD /* ofo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ofo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD5ECFE81ED289FF00C2B1FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD5ECFEA1ED289FF00C2B1FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				CD5ECFFE1ED2B46500C2B1FD /* WebViewController.swift */,
 				CD5ED0001ED2BEEB00C2B1FD /* UserTableViewController.swift */,
 				CD5ED0031ED2CBB900C2B1FD /* ofo-Bridging-Header.h */,
+				CD02B3751ED9477400FE5C95 /* MyPingPointAnnotation.swift */,
 			);
 			path = ofo;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD5ED0081ED2D20300C2B1FD /* AboutUsViewController.swift in Sources */,
+				CD02B3761ED9477400FE5C95 /* MyPingPointAnnotation.swift in Sources */,
 				CD5ECFEB1ED289FF00C2B1FD /* ViewController.swift in Sources */,
 				CD5ECFFF1ED2B46500C2B1FD /* WebViewController.swift in Sources */,
 				CD5ED0011ED2BEEB00C2B1FD /* UserTableViewController.swift in Sources */,

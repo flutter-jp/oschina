@@ -14,8 +14,7 @@ class ViewController: UIViewController , MAMapViewDelegate , AMapSearchDelegate{
     @IBOutlet weak var oView: UIView!
     var mapView: MAMapView!
     var search : AMapSearchAPI!
-
-    
+    var pin : MyPingPointAnnotation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,12 +80,23 @@ class ViewController: UIViewController , MAMapViewDelegate , AMapSearchDelegate{
             return nil
         }
         
-            let pointReuseIndetifier = "myId"
-            var annotationView: MAPinAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndetifier) as! MAPinAnnotationView?
+        let pointReuseIndetifier = "myId"
+        var annotationView: MAPinAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndetifier) as! MAPinAnnotationView?
             
-            if annotationView == nil {
-                annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndetifier)
+        if annotationView == nil {
+            annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndetifier)
+        }
+        
+        if (annotation is MyPingPointAnnotation){
+            let per = "pid"
+            var av = mapView.dequeueReusableAnnotationView(withIdentifier: per)
+            if (av == nil){
+                av = MAPinAnnotationView(annotation: annotation, reuseIdentifier: per)
             }
+            av?.image = #imageLiteral(resourceName: "homePage_wholeAnchor")
+            av?.canShowCallout = false
+            return av
+        }
 
         
         if annotation.title == "正常可用" {
@@ -129,6 +139,21 @@ class ViewController: UIViewController , MAMapViewDelegate , AMapSearchDelegate{
             
         mapView.addAnnotations(annotations)
         mapView.showAnnotations(annotations, animated: true)
+    }
+    
+    
+    
+    /// 地图初始化完成(自定义图片)
+    ///
+    /// - Parameter mapView: 地图视图
+    func mapInitComplete(_ mapView: MAMapView!) {
+        self.pin = MyPingPointAnnotation()
+        pin.coordinate = mapView.centerCoordinate
+        pin.lockedScreenPoint = CGPoint(x: view.bounds.width/2, y: view.bounds.height/2)
+        pin.isLockedToScreen = true
+        mapView.addAnnotation(pin)
+        mapView.showAnnotations([pin], animated: true)
+
     }
 
     
